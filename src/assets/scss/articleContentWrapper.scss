@@ -1,0 +1,146 @@
+.articleContentWrapper {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row !important;
+    flex: 0 !important;
+    flex-basis: initial;
+    min-width: 1568px !important;
+    .header {
+        flex-basis: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        margin-bottom: 1em;
+        padding: 0 2px !important;
+    }
+    .label {
+        position: sticky;
+        top: 4.7em;
+        height: 100%;
+    }
+    .el-container {
+        flex: 0;
+        flex-basis: initial;
+    }
+    .aside {
+        .el-aside {
+            position: relative;
+            // top: 30px;
+
+            .el-card {
+                width: 300px;
+                position: fixed;
+            }
+        }
+    }
+
+    margin-bottom: 20px;
+
+    @keyframes likeNumUp {
+        0% {
+            opacity: 0.2;
+        }
+
+        10% {
+            opacity: 0.4;
+        }
+
+        20% {
+            opacity: 0.6;
+        }
+
+        30% {
+            opacity: 0.8;
+        }
+
+        40% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .articleContent {
+        position: relative;
+        width: 61%;
+
+        h3 {
+            color: #3a76bf;
+            margin: 0;
+        }
+
+        .el-card.is-always-shadow.mainContent {
+            width: 100%;
+        }
+
+        .el-main {
+            padding: 0;
+        }
+
+        margin-bottom: 25px;
+
+        .el-card.is-hover-shadow,
+        .el-card.is-never-shadow {
+            background: #f2f5f7; 
+            width: 100%;
+        }
+
+        .el-card__body {
+            padding: 18px 20px;
+        }
+
+        .articleInfo {
+            span {
+                margin-left: 10px;
+            }
+        }
+
+        .myAvatar {
+            position: relative;
+            top: 8px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .author {
+            position: relative;
+            margin-left: 10px;
+        }
+
+        .el-row {
+            margin-bottom: 10px;
+        }
+
+        .likeBtn {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+
+            &>span {
+                position: relative;
+                left: 38px;
+                top: -18px;
+                color: red;
+                opacity: 0;
+            }
+
+            .numUp {
+                animation: likeNumUp 1.8s linear;
+            }
+        }
+    }
+
+    .label {
+        .el-aside {
+            position: relative;
+            // top: 30px;
+            // left: 34%;
+        }
+    }
+    .el-card__header, .el-card__body {
+        padding: 18px 25px;
+    }
+}
