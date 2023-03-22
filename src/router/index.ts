@@ -6,7 +6,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    // redirect: '/main',
+    redirect: '/main',
     children: [{
       path: '/main',
       name: 'NewArticalList',

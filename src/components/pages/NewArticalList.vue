@@ -50,6 +50,9 @@ export default {
 .new-article-list__wrapper {
 	padding: $page-padding;
 	background-color: white;
+	.new-article-list-item {
+		margin-bottom: 7em;
+	}
 }
 .new-article-list__header {
 	display: flex;

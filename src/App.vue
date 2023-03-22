@@ -9,6 +9,8 @@
 <script>
 import Footer from "./components/pages/Footer.vue"
 import CanvasNest from 'canvas-nest.js';
+import { getIpConfig } from "./assets/ts/util";
+import { useStore } from './store/index.ts'
 
 export default {
   name: 'App',
@@ -24,10 +26,12 @@ export default {
       },
     }
   },
-  mounted() {
+  async mounted() {
+    let ipconfig = await getIpConfig()
+    const store = useStore()
+    store.updateIpconfig(ipconfig.result)
     const dom = document.querySelector('#canvas-nest')
     const cn = new CanvasNest(dom, this.config);
-
     // cn.destroy();
   },
 }

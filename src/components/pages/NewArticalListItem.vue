@@ -1,5 +1,5 @@
 <template>
-	<div class="article-list-item__wrapper">
+	<div class="new-article-list-item__wrapper">
 		<div class="articleItem">
 			<el-card>
 				<img class="itemImg" :src="imgUrl">
@@ -36,25 +36,22 @@ onMounted(() => {
 </script>
 
 
-<style lang="scss" scoped>
-.articleItem {
-	* {
-		padding: 0;
-		margin: 0;
-	}
+<style lang="scss">
+.new-article-list-item__wrapper {
 	.articleItem {
 		display: flex;
+		height: $article-card-height;
 	}
 	width: 100%;
 	height: 300px;
-	margin-bottom: 4em;
+	// margin-bottom: 7em;
 
 	p {
 		width: 100%;
 		margin-top: 10px;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 6;
+		-webkit-line-clamp: 2;
 		overflow: hidden;
 	}
 
@@ -66,6 +63,11 @@ onMounted(() => {
 
 	h3 {
 		color: #3a76bf;
+		margin: 18px 0 !important;
+	}
+	.el-card {
+		width: 100%;
+		// padding-bottom: 10px;
 	}
 }
 </style>

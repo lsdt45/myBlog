@@ -46,10 +46,22 @@
         <el-menu class="composition-menu" background-color="#F9F9F9">
           <el-sub-menu index="1">
             <template #title>
-              <span>分类</span>
-            </template>  
+              <span>标签分类</span>
+            </template>
+            <el-menu-item v-for="(item, index) in labelList" :key="index">
+              <router-link :to="'/articleList/label/' + item"> {{ item }}
+              </router-link>
+            </el-menu-item>
+          </el-sub-menu>
+          <el-sub-menu index="2">
+            <template #title>
+              <span>页面</span>
+            </template>
             <el-menu-item>
-              测试
+              时光机
+            </el-menu-item>
+            <el-menu-item>
+              文章归档
             </el-menu-item>
           </el-sub-menu>
         </el-menu>
@@ -59,8 +71,22 @@
 </template>
 
 <script lang="ts" setup>
-// import { reactive } from "vue";
-// const state = reactive({ info: "测试测试" });
+import api from '@/assets/ts/request/api'
+import { ref, onMounted } from 'vue'
+let labelList = ref([])
+
+/**
+ * description: 获取标签列表
+ * @createTime: 2023-3-10
+ */
+function getLabelList() {
+  api.get('/getAllArticleLabel').then(resp => {
+    labelList.value = resp.data
+  })
+}
+onMounted(() => {
+  getLabelList()
+})
 </script>
 
 <style lang="scss">
@@ -123,17 +149,29 @@
       color: #999;
     }
   }
+
   .leftnavigation__composition {
     .title {
       margin-left: 1em;
       font-size: 12px;
       color: #999;
     }
+
     .el-menu-item {
       background-color: #fff;
     }
+
+    a {
+      color: #666;
+
+      &:visited {
+        color: #666;
+      }
+    }
   }
+
   .iconfont {
     color: $main-color-icon;
   }
-}</style>
+}
+</style>

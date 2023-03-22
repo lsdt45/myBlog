@@ -1,7 +1,7 @@
 <template>
 	<div class="main">
-		<NewArticalList />
-		<!-- <router-view></router-view> -->
+		<!-- <NewArticalList /> -->
+		<router-view></router-view>
 	</div>
 
 </template>
