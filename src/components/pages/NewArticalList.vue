@@ -7,7 +7,6 @@
 		<div class="new-article-list__body">
 			<div class="new-article-list-item" v-for="(article, index) in articleList" :key="article.id">
 				<NewArticalListItem :item="article" />
-				<!-- <el-divider v-if="showDiv(index)"></el-divider> -->
 			</div>
 		</div>
 	</div>
@@ -34,7 +33,7 @@ export default {
 		}
 	},
 	created() {
-		this.axios.get('/getArticle')
+		this.axios.get('/articleList')
 			.then(res => {
 				this.articleList = res.data
 			})

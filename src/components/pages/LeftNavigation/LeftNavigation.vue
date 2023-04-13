@@ -80,7 +80,7 @@ let labelList = ref([])
  * @createTime: 2023-3-10
  */
 function getLabelList() {
-  api.get('/getAllArticleLabel').then(resp => {
+  api.get('/articleLabelList').then(resp => {
     labelList.value = resp.data
   })
 }

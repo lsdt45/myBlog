@@ -4,9 +4,10 @@
 			<span>{{ title }} 下的文章:</span>
 		</template>
 		<article v-html="articleContent" class="markdown-body"></article>
-		<div v-for="(article, index) in articleList" :key="article.id">
-			<ArticleListItem :item="article" :listType="listType" :listTitle="title" />
-			<el-divider v-if="showDiv(index)"></el-divider>
+		<div class="article-list-item" v-for="(article, index) in articleList" :key="article.id">
+			<NewArticalListItem :item="article" />
+			<!-- <ArticleListItem :item="article" :listType="listType" :listTitle="title" /> -->
+			<!-- <el-divider v-if="showDiv(index)"></el-divider> -->
 		</div>
 		<div v-if="empty">
 			<el-row justify="center">
@@ -19,6 +20,7 @@
 
 <script>
 import ArticleListItem from "../components/pages/ArticleListItem.vue"
+import NewArticalListItem from "@/components/pages/NewArticalListItem.vue"
 export default {
 	name: 'ArticleList',
 	data() {
@@ -39,7 +41,8 @@ export default {
 		}
 	},
 	components: {
-		ArticleListItem
+		ArticleListItem,
+		NewArticalListItem
 	},
 	methods: {
 		getArticleData(url) {
@@ -119,6 +122,9 @@ export default {
 .main_lifeEssay_card {
 	position: relative;
 	width: 100%;
+	.article-list-item {
+		margin-bottom: 7em;
+	}
 }
 
 .cartHeader {

@@ -45,7 +45,7 @@ const activeName = ref('hotArticle')
 let articleList = ref<Article[]>([])
 
 function getHotArticle() {
-  axios.get('/getHotArticle').then(resp => {
+  axios.get('/article/hot').then(resp => {
     articleList.value = resp.data
   })
 }
