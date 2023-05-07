@@ -11,7 +11,7 @@
         <ul class="navigatio-list">
           <li>
             <router-link to="/main">
-              <span class="iconfont icon-wode"></span> 首页
+              <span class="iconfont icon-shouye"></span> 首页
             </router-link>
           </li>
           <li>

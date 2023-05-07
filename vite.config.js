@@ -3,6 +3,7 @@ import legacyPlugin from '@vitejs/plugin-legacy';
 import * as path from 'path';
 import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite'
+import AutoImport from 'unplugin-auto-import/vite';
 // @see https://cn.vitejs.dev/config/
 export default defineConfig(({
   command,
@@ -27,7 +28,7 @@ export default defineConfig(({
       "changeOrigin": true
     },
   }
-  
+
   // todo 替换为原有变量
   let define = {
     // 'process.env.NODE_ENV': command === 'serve' ? '"development"' : '"production"',
@@ -70,16 +71,20 @@ export default defineConfig(({
       legacyPlugin({
         targets: ['Android > 39', 'Chrome >= 60', 'Safari >= 10.1', 'iOS >= 10.3', 'Firefox >= 54', 'Edge >= 15'],
       }), vue(),
+      AutoImport({ /* options */
+        imports: ["vue", "vue-router"],
+        dts: 'src/auto-import.d.ts',
+      }),
     ],
     css: {
       preprocessorOptions: {
         less: {
           // 支持内联 JavaScript
           javascriptEnabled: true,
-        },     
+        },
         scss: {
           additionalData: '@import "@/assets/scss/index.scss";',
-        }        
+        }
       },
       devSourcemap: true,
     },

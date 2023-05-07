@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import config from '../public/config'
+import config from '../public/myConfig'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import 'github-markdown-css/github-markdown.css'
@@ -17,7 +17,7 @@ const pinia = createPinia()
 
 // axios.defaults.baseURL = '/api'
 if(process.env.NODE_ENV == 'development') {
-  axios.defaults.baseURL = 'http://127.0.0.1:8000/api'
+  axios.defaults.baseURL = 'http://127.0.0.1:8004/api'
 } else {
   axios.defaults.baseURL = config.API_URL
 }
